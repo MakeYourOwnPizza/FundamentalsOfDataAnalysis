@@ -1,16 +1,20 @@
 # R Tutorial Exercises
-plot(bull$YearsPro,bull$BuckOuts,xlab='Years Pro',ylab='Buckouts',main='Plot of Years Pro vs Buckouts')
+library(SDSFoundations)
+bull <- BullRiders
 
+# Make a scatter plot of two numerical variables
+plot(bull$YearsPro,bull$BuckOuts,xlab='Years Pro',ylab='Buckouts',main='Plot of Years Pro vs Buckouts')
+# Fit a linear regression over the current plot
 abline(lm(bull$BuckOuts~bull$YearsPro))
 
 plot(bull$Events,bull$BuckOuts,xlab='No of Events',ylab='Buckouts',main='Plot of Events vs Buckouts')
-
 abline(lm(bull$BuckOuts~bull$Events))
 
+# Calculate the correlation between two numeric variables
 cor(bull$YearsPro,bull$BuckOuts)
-
 cor(bull$Events,bull$BuckOuts)
 
+# Create a correlation matrix
 myvars <- c('YearsPro','Events','BuckOuts')
 cor(bull[,myvars])
 
